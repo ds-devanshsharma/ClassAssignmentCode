@@ -1,6 +1,7 @@
 package Assigment1;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /*
     ques1 :create int array of size 5
@@ -18,8 +19,15 @@ class TestCode{
         return array[array.length-1];
     }
     public int userGreatest(int index,int[] array){
-        Arrays.sort(array);
-        return array[array.length-4+index-1];
+        Integer[] intArray = new Integer[array.length];
+        int i=0;
+        for(int num : array) {
+            intArray[i] = num;
+            i++;
+        }
+        Arrays.sort(intArray, Collections.reverseOrder());
+
+        return array[index-1];
     }
 
 }
