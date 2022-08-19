@@ -45,14 +45,14 @@ public class StudentOperations {
         System.out.println("Enter your ID :");
         int updateID= scanner.nextInt();
         fetchData(array , updateID);
+        int index = getIndex(array, updateID);
         System.out.println("Which field you want to edit !!\n Enter 1 for id \nEnter 2 firstName \nEnter 3 for " +
                 "lastName \n Enter 4 for city \n Enter 5 for contact ");
         int editChoice = scanner.nextInt();
-        for(Student student : array) {
-//            if(student)
-        }
+
         switch(editChoice){
             case 1 :
+                array[index].
 
         }
 
@@ -60,6 +60,7 @@ public class StudentOperations {
     }
     public void removeData(Student[] array ,Scanner scanner ){
         System.out.println("Enter id which you want to delete !!");
-
+        int removeID = scanner.nextInt();
+        array[getIndex(array,removeID)] = null;
     }
 }
