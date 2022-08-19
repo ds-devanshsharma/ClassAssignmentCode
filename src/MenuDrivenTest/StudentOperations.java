@@ -49,7 +49,7 @@ public class StudentOperations {
                 "lastName \n Enter 4 for city \n Enter 5 for contact ");
         int editChoice = scanner.nextInt();
         for(Student student : array) {
-            if(student)
+//            if(student)
         }
         switch(editChoice){
             case 1 :
