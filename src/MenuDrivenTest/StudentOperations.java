@@ -1,6 +1,5 @@
 package MenuDrivenTest;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ public class StudentOperations {
     String lastname ;
     String city;
     String contact;
+    static int countRecord ;
     public void addData(Scanner scanner , Student[] array, int count){
         System.out.println("Enter id : ");
         id =scanner.nextInt();
@@ -28,17 +28,28 @@ public class StudentOperations {
     }
     public void fetchAllData(Student[] array ){
         System.out.println("Records of Students !!");
+
         for(int i =0; i<array.length ; i++){
-            if(array[i] != null)
+            if(array[i] != null) {
+                countRecord++;
                 System.out.println(array[i].toString());
+            }
         }
+        if(countRecord == 0) System.out.println("NO RECORD FOUND !!");
         System.out.println("-----------------------------------------------------------------------------");
     }
+    //This fetchData() is made to fetch data based on id
     public static void fetchData(Student[] array , int updateId  ){
         System.out.println("Your last updated Data !!");
         System.out.println(array[getIndex(array,updateId)].toString());
-
     }
+//    static int getCountRecord(Student[] array){
+//        for(Student student : array){
+//            if(student.firstName != null)
+//                countRecord++;
+//        }
+//        return countRecord ;
+//    }
     public static int getIndex(Student[] array ,int id){
         int index = 0;
         for(int i=0 ;i <array.length ;i++){
@@ -48,6 +59,11 @@ public class StudentOperations {
         return index;
     }
     public void updateData(Student[] array ,Scanner scanner){
+//        if(getCountRecord(array) ==0){
+//            System.out.println("NO RECORD FOUND !!");
+//            countRecord =0;
+//            MainDriver.showMenu(scanner,array);
+//        }
         System.out.println("Enter your ID :");
         int updateID= scanner.nextInt();
         fetchData(array , updateID);
@@ -110,6 +126,11 @@ public class StudentOperations {
         System.out.println("Data updated Succesfully \n ----------------------------------------------------------");
     }
     public void removeData(Student[] array ,Scanner scanner ){
+//        if(getCountRecord(array) ==0){
+//            System.out.println("NO RECORD FOUND !! ");
+//            countRecord =0;
+//            MainDriver.showMenu(scanner,array);
+//        }
         System.out.println("Enter id which you want to delete !!");
         int removeID = scanner.nextInt();
         array[getIndex(array,removeID)] = null;
