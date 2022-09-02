@@ -1,5 +1,6 @@
 package Practice.EmployeeSystem;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class AddEmployee {
 
             list.add(employee);
             }
-            catch(DuplicateEmployeeDetailsException  | InvalidEmployeeIdException e){
+            catch(DuplicateEmployeeDetailsException | InputMismatchException | InvalidEmployeeIdException e  ){
                 count--;
             }
     }
